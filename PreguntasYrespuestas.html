@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Preguntas y respuestas</title>
+	<style>
+		 body {
+        background-color: pink;
+      }
+	 .header {
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: black;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .cell {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  .cell.flip .front {
+    transform: rotateY(180deg);
+  }
+
+  .cell.flip .back {
+    transform: rotateY(0deg);
+  }
+
+  .front,
+  .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .back {
+    transform: rotateY(-180deg);
+  }
+
+  .welcome-cell {
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  .welcome-cell:hover {
+    transform: rotateY(180deg);
+  }
+  
+  .welcome-cell .front {
+    background-color: pink;
+    color: white;
+  }
+  
+  .welcome-cell .back {
+    background-color: pink;
+    color: white;
+  }
+
+</style>
+	
+</head>
+<body>
+	<div class="header">
+      <p>Para que me conozcas mas, solo quiero que sepas que cualquier duda que tengas sobre mi, te la respondere con sinceridad:)</p>
+    </div>
+	<div class="container">
+		<div class="cell">
+			<div class="front">¿Cuál es mi filosofía de vida?</div>
+			<div class="back">Estoicismo
+			</div>
+		</div>
+		<div class="cell">
+			<div class="front">¿Cuál es mi mayor miedo?</div>
+			<div class="back">Estar solo:(</div>
+		</div>
+		<div class="cell">
+			<div class="front">¿Qué significa la felicidad para mi?</div>
+			<div class="back">Verte:)</div>
+		</div>
+		<div class="cell">
+			<div class="front">¿Cual es mi pasatiempo favorito?</div>
+			<div class="back">Jugar con mis amigos</div>
+		</div>
+		<div class="cell">
+			<div class="front">¿Cuál es mi objetivo a largo plazo en la vida?</div>
+			<div class="back">Ser doctor y asegurarme que no me falte nada</div>
+		</div>
+		<div class="cell">
+			<div class="front">¿Quien es mi mayor inspiracion?</div>
+			<div class="back">Tú me inspiras a ser una mejor persona. Admiro tu dedicación y tu inteligencia.</div>
+		</div>
+		<div class="cell">
+			<div class="front">¿Cual es el valor mas importante para mi?</div>
+			<div class="back">Empatia</div>
+		</div>
+		<div class="cell">
+			<div class="front">¿Cual es la persona que mas me marco?</div>
+			<div class="back">Oliver</div>
+		</div>
+		<div class="cell">
+			<div class="front">¿Cuál es mi mayor sueño?</div>
+			<div class="back">Que la muerte no existiera</div>
+		</div>
+	</div>
+
+<div class="header">
+      <p align="center">Realmente me interesa conocerte lo máximo posible. Si no es mucha molestia, ¿podrías responder también estas preguntas? Me encantaría saber más acerca de ti :) ¡Gracias de antemano!</p>
+    </div>
+
+	<script>
+		 const cells = document.querySelectorAll('.cell');
+
+  cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+      cell.classList.toggle('flip');
+    });
+  });
+</script>
