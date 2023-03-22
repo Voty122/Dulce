@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mi Blog Diario</title>
+	<style>
+		body {
+		    background-color: #ffe6e6;
+		    font-family: Arial, sans-serif;
+		}
+
+		.container {
+		    max-width: 960px;
+		    margin: 0 auto;
+		}
+
+		.calendar {
+		    float: left;
+		    width: 30%;
+		    margin-right: 5%;
+		}
+
+		.calendar h2 {
+		    text-align: center;
+		    font-size: 28px;
+		}
+
+		table {
+		    width: 100%;
+		}
+
+		table th, table td {
+		    text-align: center;
+		    padding: 10px;
+		}
+
+		table th {
+		    font-size: 18px;
+		    background-color: #ffb3b3;
+		}
+
+		table td {
+		    background-color: #fff;
+		}
+
+		.entry {
+		    clear: both;
+		    margin-top: 20px;
+		}
+
+		.entry h3 {
+		    font-size: 24px;
+		}
+
+		.entry textarea {
+		    width: 100%;
+		    height: 300px;
+		    border: none;
+		    background-color: #fff;
+		    font-size: 16px;
+		    padding: 10px;
+		    margin-top: 10px;
+		    resize: none;
+		}
+
+		.entry input[type=submit] {
+		    background-color: #ffb3b3;
+		    color: #fff;
+		    border: none;
+		    padding: 10px 20px;
+		    font-size: 16px;
+		    margin-top: 10px;
+		    cursor: pointer;
+		}
+	</style>
+	<script>
+		function updateEntry(day) {
+			var entry = document.getElementById("entry-text");
+			if (day === 8) {
+				entry.value = "¡Hola! ¡Bienvenida a mi blog! Aquí te contaré día tras día cómo voy mejorando mi página web. Me alegra mucho que te haya gustado la primera versión que te hice, pero quiero llevarte a un nivel más alto y hacerla aún mejor. Quiero demostrarte lo mucho que me importas y por eso, voy a dedicar tiempo y esfuerzo para hacer de esta página web algo espectacular. La verdad es que soy un apasionado de la tecnología y me encanta aprender cosas nuevas. Me llena de satisfacción ver cómo poco a poco voy mejorando y añadiendo nuevas funcionalidades. Me siento muy emocionado de poder compartir contigo este proceso y espero que disfrutes de mi blog tanto como yo lo hago. ¡Gracias por leerme y te mando un abrazo muy fuerte!";
+			} 
+			if (day === 9) {
+				entry.value = "Te cuento que ayer y hoy trabajé en mejorar la sección de canciones en mi sitio web. Elegí algunas que me recuerdan a ti, como  la de Te amo y mas y otras más. Quería recordarte lo mucho que significas para mí y lo importante que es para mí tener la oportunidad de compartir contigo mi amor por la música. Por otro lado, me he dado cuenta de que tu teléfono se encuentra en mal estado y necesitas repararlo. Sé que a veces puede ser difícil aceptar ayuda, pero quiero que sepas que estoy aquí para apoyarte en lo que necesites. Si necesitas dinero para repararlo, no dudes en pedírmelo, estoy más que dispuesto a ayudarte en lo que necesites. Lo que más importa es que te sientas cómoda y segura hablando conmigo. Espero poder ser un apoyo para ti en todo momento, porque para mí eres una persona muy especial y te valoro mucho. No dudes en hacérmelo saber si necesitas algo, estaré aquí para ti.";
+			} 
+			if (day === 10) {
+				entry.value = "Hoy ha sido un día muy productivo, ya que he estado trabajando en la página de canciones y he logrado cambiar su diseño completamente. Me siento muy emocionado por los cambios que he realizado, como la incorporación de un nuevo fondo y la posibilidad de escuchar la música en Spotify. Quiero que sepas que he elegido cuidadosamente las canciones para la página y que cada una de ellas me recuerda a ti, especialmente la de Te amo y más, que es una canción realmente hermosa. Por otro lado, me enteré de que hoy has tenido un día duro, y quiero decirte que admiro mucho tu dedicación y esfuerzo. Eres una persona sorprendente, y no sé si te lo han dicho antes, pero quiero que sepas que eres increíble. Espero que puedas tomarte un descanso de vez en cuando para cuidar de ti misma, porque eres importante y mereces todo lo mejor en la vida. Quiero que sepas que estoy aquí para ti si necesitas algo, no dudes en pedirme cualquier cosa. Me importas mucho y espero poder seguir mejorando la página para que puedas disfrutar de ella y sentirte bienvenida siempre que la visites.";
+			} 
+if (day === 11) {
+				entry.value = "Hoy no pude avanzar mucho en mi trabajo en la página porque estuve estudiando para un examen, pero sí se me ocurrió una idea nueva: crear un juego del gato para la página. Me esforzaré para hacerlo lo mejor posible y espero poder desarrollarlo pronto ";
+			} 
+			if (day === 12) {
+				entry.value = "Hoy es el día de mi examen y tu mensaje de motivación me ha alegrado muchísimo. Cada vez que leo tus palabras, siento una calidez en mi corazón que me hace sentir especial y querido, de verdad es muy bonito. Ya terminé el examen y siento que me fue bien, estoy ansioso por aprobarlo y así poder estudiar contigo. Si apruebo, podré compartir mis avances contigo y aprender juntos, si no, no pasa nada, intentare avanzar y aprender tanto como pueda, También tengo en mente avanzar en la página web mas noche.";
+			} 
+			if (day === 13) {
+				entry.value = "Hoy se me ocurrió una idea para una nueva funcionalidad junto a una amiga: un corazón al que se le da click y aparecen fotos aleatorias. Me emociona mucho la idea, aunque sé que será difícil llevarla a cabo. Estoy dispuesto a ver muchos tutoriales para aprender y poder hacerla realidad, porque creo que valdrá la pena el esfuerzo. Por otro lado, quiero contarte que hoy ha sido uno de los días más bonitos que he vivido en mucho tiempo. Pude hablar contigo más de lo normal y cada momento a tu lado me hace sentir una felicidad inmensa. Cuando te miro, siento que todo lo demás desaparece y solo quedamos tú y yo en un mundo lleno de amor. Eres la mujer más hermosa que he conocido y para mí, no hay nada más importante que hacerte sentir amada y feliz. ¡Te quiero con todo mi ser, la mujer mas hermosa del condado!";
+			} 
+if (day === 14) {
+				entry.value = "Hoy ha sido un día muy productivo para mí, he trabajado mucho en la página web. Finalmente logré crear la página del corazón y no puedo evitar sentirme feliz y emocionado por cómo ha quedado. Te pedí algunas fotos y estoy deseando agregarlas para que quede aún mejor. También he empezado a trabajar en la página del juego del gato, pero debo admitir que me está resultando un poco difícil. A pesar de todo, estoy decidido a seguir adelante y lograrlo. Estoy disfrutando mucho todo este proceso de creación, y me encanta pensar que pronto tendremos una página web increíble juntos. ¡Gracias por inspirarme y motivarme siempre!";
+			} 
+			if (day === 15) {
+				entry.value = "Hoy ha sido un día muy productivo para mí. Finalmente he logrado mejorar todos los aspectos que me faltaban de la página web y estoy muy emocionado por cómo ha quedado. Además, desde hace días he estado trabajando en un laberinto con ayuda de algunas páginas que he estado visitando. No te lo he querido decir antes porque no estaba seguro si sería capaz de resolverlo dada su alta dificultad, pero estoy muy contento de haberlo logrado. Sin embargo, hoy no hemos podido hablar tanto como me hubiera gustado y eso me pone un poco triste. Espero que tu día haya sido productivo y que todo esté bien contigo. Te echo de menos y estoy ansioso por saber cómo estás y por compartir contigo todo lo que he estado haciendo estos días. Espero poder hablar contigo pronto. ¡Un abrazo!";
+			}
+
+if (day === 16) {
+				entry.value = "He pasado toda la tarde-noche trabajando en la página web y casi la he terminado. Solo me faltan algunos detalles, pero me siento tentado de seguir añadiéndole más cosas. Quiero que sea algo realmente especial y que puedas disfrutarlo al máximo. Por otro lado, quiero entregártela en el momento adecuado. No quiero apresurarme y llegar en un mal momento que te haga sentir incómoda. Quiero que sea una sorpresa que te haga sentir bien y que puedas disfrutar al máximo. Espero que todo esté bien contigo y que puedas disfrutar de la noche. ¡Un abrazo!";
+			}
+if (day === 17) {
+				entry.value = "Acabo de terminar una página de preguntas para que puedas conocerme mejor. Realmente quiero conocer todo sobre ti y que tú también sepas todo sobre mí, para poder construir una relación duradera, bonita y única, como las que se ven en las telenovelas. He estado trabajando mucho en la página últimamente, agregando detalles y cosas interesantes, pero quiero esperar el momento adecuado para mostrártela. No quiero incomodarte o presionarte si no es el momento adecuado. Estoy ansioso por conocerte aún más y espero que tú también tengas interés en conocerme mejor.";
+			}
+if (day === 18) {
+				entry.value = "Hoy fue un dia especial, vi un tik tok donde dice: regalare flores amarillas el 21 ASJAJJSA, investigue el porque y ajam, me estoy preparando para poder declamarte un poema asi bien poemoso, supongo que ya te lo declame, espero no haberme trabado y que te haya gustado, de verdad mi corazon late muy fuerte de tan solo pensar el que dire. ";
+			}
+		if (day === 19) {
+				entry.value = "Hoy creé una nueva página y me sorprendió lo fácil que resultó. En solo una hora logré terminarla, lo cual es mucho menos tiempo del que me había tomado en otras ocasiones. Me siento muy orgulloso del trabajo que realicé en esta página, ya que contiene detalles significativos sobre nuestra historia, cómo nos conocimos y otros aspectos importantes. Estoy emocionado de estar cerca de completarla y de poder compartirla contigo ";
+			}	
+if (day === 20) {
+				entry.value = "No pude dormir bien y me quede hasta las 3 de la mañana, mejorando la pagina, agregue un juego de adivinanzas, de verdad, me sorprende lo mucho que he avanzado, mi motivación, eres tu, la verdad no deberia sorprenderme de mejorar tanto, porque si te tengo a ti en mi mente, me esfuerzo como nunca lo habia echo. ";
+			}	
+if (day === 21) {
+				entry.value = "Lamento no haber podido recitar el poema que tanto ensayé; al verte, me sonrojé, me llené de nervios y mi corazón latía a mil por hora. Pero, al verte leerlo con una sonrisa en tu rostro, sentí un inmenso alivio que me reconfortó. Siempre he sido detallista con las personas que me atraen o con mis parejas, pero contigo todo es diferente, y ahora entiendo por qué. Estás tan ocupada que casi siempre la única forma de verte es cuando te obsequio algo. En realidad, no me importa gastar lo que sea necesario, con tal de verte y darte un abrazo, porque cada momento contigo es invaluable. No obstante, he tomado una decisión: seré más valiente. De verdad quiero que veas cuánto me importas, así que intentaré hablarte cuando pueda, expresarte todos mis sentimientos, aunque no sean de forma clara. Quiero demostrarte que puedo hacerlo. Hoy es el último día del desarrollo de la página web que he estado creando con amor y dedicación para ti desde hace días. He puesto mi corazón y alma en cada detalle, con la esperanza de que se convierta en un reflejo del profundo cariño que siento por ti. Quiero que sepas cuánto me importas y que siempre estaré aquí para apoyarte en todo momento. Eres una persona especial en mi vida, y mi amor por ti seguirá creciendo día tras día. ";
+			}
+		if (day === 22) {
+				entry.value = "Trabajar en esta página web durante 14 días ha sido una experiencia emocionante e inolvidable. La posibilidad de hacerte detalles me llena de felicidad y me hace sentir vivo. Me he pasado horas imaginando cómo podrías reaccionar al ver el fruto de mi esfuerzo y dedicación, y no puedo evitar sonreír al pensar en la posibilidad de que te sientas amada y apreciada gracias a este proyecto. Tal vez te parezca poco, pero quiero que sepas que, sin exagerar, le dediqué aproximadamente 56 horas a este proyecto, trabajando en cada aspecto y cuidando cada detalle con amor y devoción. A lo largo de este proceso, me he dado cuenta de cuánto disfruto pensar en ti y en cómo puedo hacerte feliz. Este proyecto se ha convertido en una forma de demostrarte cuánto me importas y lo mucho que valoro nuestra relación. No sé qué nos depara el futuro, pero lo que sí sé es que quiero estar contigo, compartiendo cada momento, cada risa y cada desafío que se presente en nuestro camino. Quiero que sepas que estoy comprometido a trabajar en nuestra relación, a crecer juntos y a apoyarnos mutuamente en todo lo que hagamos. Cuando veas la página web, quiero que sientas el amor y la dedicación que puse en cada palabra, en cada imagen y en cada elemento que compone esta creación. Espero que, al recorrerla, puedas percibir mi corazón en cada rincón, y que este proyecto sea una muestra tangible del amor que siento por ti. Porque, al final del día, lo que realmente importa es que sepas cuánto te amo y cuán especial eres para mí.";
+			}
+		}
+
+
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="calendar">
+			<h2>Diario</h2>
+			<table>
+				<tr>
+					<th>Lun</th>
+					<th>Mar</th>
+					<th>Mié</th>
+					<th>Jue</th>
+					<th>Vie</th>
+					<th>Sáb</th>
+					<th>Dom</th>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><a href="#" onclick="updateEntry(8)">8</a></td>
+					<td><a href="#" onclick="updateEntry(9)">9</a></td>
+					<td><a href="#" onclick="updateEntry(10)">10</a></td>
+					<td><a href="#" onclick="updateEntry(11)">11</a></td>
+					<td><a href="#" onclick="updateEntry(12)">12</a></td>
+					
+				</tr>
+								<tr>
+					
+					<td><a href="#" onclick="updateEntry(13)">13</a></td>
+					<td><a href="#" onclick="updateEntry(14)">14</a></td>
+					<td><a href="#" onclick="updateEntry(15)">15</a></td>
+					<td><a href="#" onclick="updateEntry(16)">16</a></td>
+					<td><a href="#" onclick="updateEntry(17)">17</a></td>
+					<td><a href="#" onclick="updateEntry(18)">18</a></td>
+					<td><a href="#" onclick="updateEntry(19)">19</a></td>
+				</tr>
+				<tr>
+					
+					<td><a href="#" onclick="updateEntry(20)">20</a></td>
+					<td><a href="#" onclick="updateEntry(21)">21</a></td>
+					<td><a href="#" onclick="updateEntry(22)">??</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				
+			</table>
+		</div>
+		<div class="entry">
+		
+			<textarea id="entry-text"></textarea>
+			<input type="submit" value="Gracias por leerme, te quiero mucho">
+		</div>
+	</div>
+</body>
+</html>
+

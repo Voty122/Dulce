@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>¿Me dejas ser tu novio?</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+      }
+      
+      #ventana {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        font-family: sans-serif;
+        font-size: 1.2rem;
+      }
+      
+      #botonNo, #botonSi {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        outline: none;
+      }
+      
+      #botonNo {
+        background-color: #c0392b;
+        color: white;
+      }
+      
+      #botonNo:hover {
+        background-color: #e74c3c;
+      }
+      
+      #botonSi {
+        background-color: #2ecc71;
+        color: white;
+      }
+      
+      #botonSi:hover {
+        background-color: #27ae60;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="ventana">
+      <h1>¿Me dejas ser tu novio?</h1>
+      <button id="botonNo" onclick="moverVentana()">No</button>
+      <button id="botonSi" onclick="mostrarMensaje()">Sí</button>
+    </div>
+ <audio id="audio" src="yei.mp3"></audio>
+<audio id="audio2" src="ou.mp3"></audio>
+
+<script>
+  var ventana = document.getElementById("ventana");
+  var ventanaTop = ventana.style.top;
+  var ventanaLeft = ventana.style.left;
+  var audio = document.getElementById("audio");
+  var audio2 = document.getElementById("audio2");
+
+  function moverVentana() {
+    ventana.style.top = Math.floor(Math.random() * 60 + 20) + "%";
+    ventana.style.left = Math.floor(Math.random() * 60 + 20) + "%";
+    audio2.pause();
+    audio2.currentTime = 0;
+    audio2.play();
+  }
+  
+  function mostrarMensaje() {
+    ventana.innerHTML = "<h1>Felicidades, ahora somos novios :)</h1>";
+    ventana.style.top = ventanaTop;
+    ventana.style.left = ventanaLeft;
+    ventana.style.backgroundColor = "pink";
+
+    audio.pause();
+    audio.currentTime = 0;
+    audio.play();
+    audio.onended = function() {
+      audio.currentTime = 0;
+    };
+    document.body.style.backgroundColor = "#9D39EA";
+  }
+</script>
+
+  </body>
+</html>
+
+
+
+
+

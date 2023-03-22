@@ -1,0 +1,64 @@
+body {
+  background-color: pink;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+#adivinanza, .respuesta {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.respuestas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.animated {
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+.shake {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+#adivinanza, .respuesta {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  display: inline-block;
+  cursor: pointer;
+}

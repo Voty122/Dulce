@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Juego de Gato</title>
+	<style>
+		td {
+			height: 100px;
+			width: 100px;
+			text-align: center;
+			font-size: 60px;
+			border: 1px solid white;
+			cursor: pointer;
+		}
+		th {
+			height: 100px;
+			width: 100px;
+			text-align: center;
+			font-size: 60px;
+			border: 1px solid white;
+			cursor: pointer;
+		}
+		/* Estilos para el tablero original */
+#board {
+display: flex;
+flex-wrap: wrap;
+width: 300px;
+height: 300px;
+margin: 0 auto;
+}
+.square {
+width: 100px;
+height: 100px;
+border: 1px solid black;
+box-sizing: border-box;
+font-size: 4em;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+}
+.square:hover {
+background-color: #eee;
+}
+#reset {
+display: block;
+margin: 20px auto;
+font-size: 1.5em;
+}
+body {
+background-color: black;
+color: white;
+}
+
+/* Estilos para el tablero de estilo X y O */
+.board {
+border: 2px solid white;
+display: flex;
+flex-wrap: wrap;
+height: 300px;
+width: 300px;
+margin: 0 auto;
+}
+
+.square {
+background-color: black;
+color: white;
+font-size: 72px;
+height: 96px;
+line-height: 96px;
+text-align: center;
+width: 96px;
+border: 2px solid white;
+}
+
+.square:hover {
+background-color: #333;
+}
+
+.x {
+color: white;
+}
+
+.o {
+color: white;
+}
+
+/* Estilos para las líneas ganadoras */
+.line {
+
+position: absolute;
+height: 0px;
+background-color: white;
+}
+#scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+#playerX,
+#playerO {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#playerX p,
+#playerO p {
+  margin-top: 10px;
+}
+
+#playerXScore,
+#playerOScore {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.line {
+  position: absolute;
+  height: 10px;
+  background-color: white;
+}
+
+	</style>
+</head>
+<body>
+	<h1 align="center">Juego de Gato</h1>
+	<center>
+  <div id="board-container" style="position: relative;">
+    <table>
+	
+		<tr>
+			<td id="0"></td>
+			<td id="1"></td>
+			<td id="2"></td>
+		</tr>
+		<tr>
+			<td id="3"></td>
+			<td id="4"></td>
+			<td id="5"></td>
+		</tr>
+		<tr>
+			<td id="6"></td>
+			<td id="7"></td>
+			<td id="8"></td>
+		</tr>
+	</table>
+  </div>
+</center>
+
+
+
+
+	 <button id="reset">Reiniciar</button>
+
+
+
+    <script src="game.js"></script>
+	<p align="center">Puntuaciones:</p>
+	<center>
+	<table>
+		<br>
+		<th>
+	<p>X: <span id="x-score">0</span></p>
+</th>
+
+<th>
+	<img src="imagen2.jpeg" width="200" height="200"  alt="Descripción de la imagen">
+	
+</th>
+<th>
+	
+<img src="imagen1.jpg" width="200" height="200" alt="Descripción de la imagen">
+
+</th>
+
+
+<th>
+	<p align="center">O: <span id="o-score">0</span></p>
+</th>
+
+</br>
+</table>
+</center>
+	<script>
+		// Variables para controlar el juego y las puntuaciones
+		let player = "X";
+		let xScore = 0;
+		let oScore = 0;
+		let gameOver = false;
+
+		// Función para cambiar el jugador actual
+		function changePlayer() {
+			if (player === "X") {
+				player = "O";
+			} else {
+				player = "X";
+			}
+		}
+
+		// Función para actualizar la puntuación del jugador actual
+		function updateScore() {
+			if (player === "X") {
+				xScore++;
+				document.getElementById("x-score").innerText = xScore;
+			} else {
+				oScore++;
+				document.getElementById("o-score").innerText = oScore;
+			}
+		}
+
+		// Función para dibujar una línea sobre las celdas ganadoras
+function drawWinningLine(a, b, c) {
+  const cells = document.querySelectorAll("td");
+
+  const boardContainer = document.getElementById("board-container");
+  const line = document.createElement("div");
+  line.classList.add("line");
+
+  // Calcular las coordenadas del centro de las celdas
+  const coords = [
+    [50, 50],
+    [150, 50],
+    [250, 50],
+    [50, 150],
+    [150, 150],
+    [250, 150],
+    [50, 250],
+    [150, 250],
+    [250, 250]
+  ];
+
+  // Dibujar la línea ganadora
+  if (a % 3 === 0 && a + 2 === c) { // Línea horizontal
+    line.style.black = "300px";
+    line.style.left = "0";
+    line.style.top = coords[a][1] + "px";
+  } else if (a < 3 && c - a === 6) { // Línea vertical
+    line.style.black = "10px";
+    line.style.height = "300px";
+    line.style.left = coords[a][0] + "px";
+    line.style.top = "0";
+  } else if (a === 0 && c === 8) { // Diagonal de izquierda a derecha
+    line.style.black = "10px";
+    line.style.height = "300px";
+    line.style.transform = "rotate(45deg)";
+    line.style.left = "150px";
+    line.style.top = "0";
+  } else if (a === 2 && c === 6) { // Diagonal de derecha a izquierda
+    line.style.black = "10px";
+    line.style.height = "300px";
+    line.style.transform = "rotate(-45deg)";
+    line.style.left = "150px";
+    line.style.top = "0";
+  }
+
+  boardContainer.appendChild(line);
+}
+
+
+// Función para verificar si un jugador ha ganado el juego
+function checkWin() {
+  const cells = document.querySelectorAll("td");
+  const winCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+
+  // Verificar si algún jugador ha completado una de las combinaciones ganadoras
+  for (let i = 0; i < winCombos.length; i++) {
+    const [a, b, c] = winCombos[i];
+    if (cells[a].innerText === player && cells[b].innerText === player && cells[c].innerText === player) {
+      gameOver = true;
+      updateScore();
+      setTimeout(() => {
+        drawWinningLine(a, b, c); // Llamar a la función para dibujar la línea antes de la alerta
+        alert(player + " ha ganado el juego!");
+      }, 100);
+    }
+  }
+
+  // Verificar si el juego terminó en empate
+  if (!gameOver) {
+    let draw = true;
+    for (let i = 0; i < cells.length; i++) {
+      if (cells[i].innerText === "") {
+        draw = false;
+      }
+    }
+    if (draw) {
+      gameOver = true;
+      setTimeout(() => {
+        alert("El juego ha terminado en empate.");
+      }, 100);
+    }
+  }
+}
+
+
+	
+	// Event listener para cada celda del tablero
+const cells = document.querySelectorAll("td");
+cells.forEach(cell => {
+  cell.addEventListener("click", () => {
+    if (!gameOver && cell.innerText === "") {
+      cell.innerText = player;
+      checkWin();
+      if (!gameOver) {
+        changePlayer();
+      } else {
+        cell.innerText = player; // Agregar la última "X" u "O"
+      }
+    }
+  });
+});
+
+
+</script>
+</body>
+</html>
